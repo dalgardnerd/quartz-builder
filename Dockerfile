@@ -2,12 +2,13 @@ FROM caddy:latest
 
 RUN apk update
 RUN apk add --no-cache git nodejs npm
-
+WORKDIR /content
 WORKDIR /config
 
+COPY README.md /tmp
 COPY Caddyfile /config/caddy/Caddyfile
 COPY init.sh /usr/local/bin/init.sh
-COPY README.md /content/index.md
+
 RUN chmod +x /usr/local/bin/init.sh
 
 EXPOSE 80
