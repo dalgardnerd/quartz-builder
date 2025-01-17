@@ -1,6 +1,5 @@
 {
 	http_port 80
-	https_port 443
 }
 
 (block_world) {
@@ -28,19 +27,6 @@
 :80 {
 	import log_settings
 	root * /config/quartz/public
-	try_files {path} {path}.html {path}/ =404
-	file_server
-	import block_world
-
-	handle_errors {
-		rewrite * /{err.status_code}.html
-		file_server
-	}
-}
-
-:443 {
-	import log_settings
-	root * /config/wiki/public
 	try_files {path} {path}.html {path}/ =404
 	file_server
 	import block_world
