@@ -7,4 +7,4 @@ services:
       - "80:80"
     volumes:
       - ./quartz-caddy/quartz:/config/quartz/
-      - ./quartz-caddy/content:/config/content/
+      - ./quartz-caddy/content:/content/

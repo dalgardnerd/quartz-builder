@@ -7,6 +7,7 @@ WORKDIR /config
 
 COPY Caddyfile /config/caddy/Caddyfile
 COPY init.sh /usr/local/bin/init.sh
+COPY README.md /content/index.md
 RUN chmod +x /usr/local/bin/init.sh
 
 EXPOSE 80
