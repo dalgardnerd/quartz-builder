@@ -11,7 +11,6 @@ if [ ! -f "/config/quartz/quartz.config.ts" ]; then
     npm i
     npx quartz create -X new -l shortest
     printf "${CYAN}Quartz initialization complete.\n${NOCOLOR}\n"
-    cp /config/quartz/README.md /config/quartz/content
     printf "${MAGENTA}Peforming initial quartz build...${NOCOLOR}\n"
     npx quartz build
     printf "${MAGENTA}Quartz initial build complete!${NOCOLOR}\n"
