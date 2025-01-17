@@ -22,13 +22,6 @@ else
     npx quartz update
 fi
 
-# if [ ! -z "${OBSIDIAN_GIT_LINK+x}" ]; then
-#     mkdir ~/.ssh
-#     ssh-keygen -t ed25519 -C "quartz-caddy" -f ~/.ssh/id_ed25519 -N ""
-#     pub_key=$(cat ~/.ssh/id_ed25519.pub)
-#     printf "${RED}YOUR SSH PUBLIC KEY IS:\n${pub_key}\n${RED}Add this key to your github repository and set as an environment variable in this docker container! ${NOCOLOR}\n"
-# fi
-
 printf "${CYAN}You can view the webpage at the following address: ${NOCOLOR} http://localhost\n"
 
 caddy run --config /config/caddy/Caddyfile --adapter caddyfile

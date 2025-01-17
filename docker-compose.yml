@@ -10,4 +10,3 @@ services:
     volumes:
       - ./quartz:/config/quartz
     environment:
-      - OBSIDIAN_GIT_LINK='github.com'
