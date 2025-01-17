@@ -15,4 +15,11 @@ else
 fi
 
 
+caddy run --config /config/caddy/Caddyfile --adapter caddyfile
+
+CYAN='\033[1;36m'
+NC='\033[0m' # No Color
+link='\e]8;;http://localhost.com:80\e\\This is a link\e]8;;\e\\'
+
+printf "${CYAN}You can now view the webpage at the following address: ${NC} http://localhost \n"
 
