@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  quartz-caddy:
+    image: quartz-caddy:latest
+    build:
+      context: .
+    ports:
+      - "80:80"
+    volumes:
+      - /quartz:/config/quartz

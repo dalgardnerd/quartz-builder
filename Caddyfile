@@ -1,52 +1,52 @@
 {
-    http_port 80
-    https_port 443
+	http_port 80
+	https_port 443
 }
 
 (block_world) {
-    @block not remote_ip private_ranges
-    abort @block
+	@block not remote_ip private_ranges
+	abort @block
 }
 
 (security_headers) {
-    header {
-        Strict-Transport-Security "max-age=31536000; includeSubDomains;"
-        X-Frame-Options "SAMEORIGIN"
-        X-Content-Type-Options "nosniff"
-        Referrer-Policy "strict-origin"
-        X-Robots-Tag "noindex, nofollow, nosnippet, noarchive"
-    }
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains;"
+		X-Frame-Options "SAMEORIGIN"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin"
+		X-Robots-Tag "noindex, nofollow, nosnippet, noarchive"
+	}
 }
 
 (log_settings) {
-    log {
-        output file /config/caddy/access.log
-        level WARN
-    }
+	log {
+		output file /config/caddy/access.log
+		level WARN
+	}
 }
 
 :80 {
-    import log_settings
-    root * /config/quartz/public
-    try_files {path} {path}.html {path}/ =404
-    file_server
-    import block_world
+	import log_settings
+	root * /config/quartz/public
+	try_files {path} {path}.html {path}/ =404
+	file_server
+	import block_world
 
-    handle_errors {
-            rewrite * /{err.status_code}.html
-            file_server
-    }
+	handle_errors {
+		rewrite * /{err.status_code}.html
+		file_server
+	}
 }
 
 :443 {
-    import log_settings
-    root * /config/wiki/public
-    try_files {path} {path}.html {path}/ =404
-    file_server
-    import block_world
+	import log_settings
+	root * /config/wiki/public
+	try_files {path} {path}.html {path}/ =404
+	file_server
+	import block_world
 
-    handle_errors {
-            rewrite * /{err.status_code}.html
-            file_server
-    }
+	handle_errors {
+		rewrite * /{err.status_code}.html
+		file_server
+	}
 }
