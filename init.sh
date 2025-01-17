@@ -1,25 +1,33 @@
 #!/bin/sh
-# Check if Quartz is already initialized
+CYAN='\033[1;36m'
+MAGENTA='\033[1;35m'
+RED='\033[1;31m'
+NOCOLOR='\033[0m'
+
 if [ ! -f "/config/quartz/quartz.config.ts" ]; then
-    echo "Initializing Quartz..."
+    printf "${MAGENTA}Initializing Quartz...${NOCOLOR}\n" 
     git clone https://github.com/jackyzha0/quartz.git
     cd quartz
     npm i
     npx quartz create -X new -l shortest
-    echo "Quartz initialization complete."
+    printf "${CYAN}Quartz initialization complete.\n${NOCOLOR}\n"
     cp /config/quartz/README.md /config/quartz/content
+    printf "${MAGENTA}Peforming initial quartz build...${NOCOLOR}\n"
     npx quartz build
-    echo "Visit the Readme at http://localhost:80"
+    printf "${MAGENTA}Quartz initial build complete!${NOCOLOR}\n"
+    
 else
-    echo "Quartz is already initialized. Skipping..."
+    printf "${MAGENTA}Quartz is already initialized. Checking for updates...${NOCOLOR}\n"
+    cd quartz
+    npx quartz update
 fi
 
+if [! -z ${OBSIDIAN_GIT_LINK}]; then
+    ssh-keygen -t ed25519 -C "quartz-caddy" -f ~/.ssh/id_ed25519 -N ""
+    pub_key=(cat ~/.ssh/id_ed25519)
+    printf "${CYAN}YOUR SSH PUBLIC KEY IS: ${RED}${pub_key}\nAdd this key to your github repository and set as an environment variable in this docker container! ${NOCOLOR}\n"
+fi
+
+printf "${CYAN}You can view the webpage at the following address: ${NOCOLOR} http://localhost\n"
 
 caddy run --config /config/caddy/Caddyfile --adapter caddyfile
-
-CYAN='\033[1;36m'
-NC='\033[0m' # No Color
-link='\e]8;;http://localhost.com:80\e\\This is a link\e]8;;\e\\'
-
-printf "${CYAN}You can now view the webpage at the following address: ${NC} http://localhost \n"
-
