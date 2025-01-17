@@ -9,7 +9,7 @@ if [ ! -f "/config/quartz/quartz.config.ts" ]; then
     git clone https://github.com/jackyzha0/quartz.git
     cd quartz
     npm i
-    npx quartz create -X new -l shortest
+    npx quartz create -X symlink -l shortest -s /config/content
     printf "${CYAN}Quartz initialization complete.\n${NOCOLOR}\n"
     printf "${MAGENTA}Peforming initial quartz build...${NOCOLOR}\n"
     npx quartz build
