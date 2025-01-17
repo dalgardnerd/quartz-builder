@@ -3,10 +3,11 @@ services:
     image: quartz-caddy:latest
     build:
       context: .
+      ssh:
+        - default
     ports:
       - "80:80"
     volumes:
       - ./quartz:/config/quartz
     environment:
       - OBSIDIAN_GIT_LINK='github.com'
-      # - SSH_PUB_KEY=''
