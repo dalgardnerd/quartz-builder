@@ -2,7 +2,7 @@ FROM caddy:latest
 
 RUN apk add --no-cache git nodejs npm
 
-WORKDIR /config/quartz
+WORKDIR /config
 
 COPY Caddyfile /config/caddy/Caddyfile
 COPY init.sh /usr/local/bin/init.sh
