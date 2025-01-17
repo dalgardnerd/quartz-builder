@@ -1,6 +1,7 @@
 FROM caddy:latest
 
-RUN apk add --no-cache git nodejs npm
+RUN apk update
+RUN apk add --no-cache git nodejs npm openssh openssh-keygen
 
 WORKDIR /config
 
