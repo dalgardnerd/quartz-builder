@@ -9,4 +9,3 @@ services:
       - "80:80"
     volumes:
       - ./quartz:/config/quartz
-    environment:
