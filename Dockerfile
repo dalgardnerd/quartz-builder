@@ -10,7 +10,6 @@ COPY Caddyfile /config/caddy/Caddyfile
 COPY init.sh /usr/local/bin/init.sh
 
 RUN chmod +x /usr/local/bin/init.sh
-RUN chmod +x /usr/local/bin/content_polling
 
 EXPOSE 80
 
