@@ -1,1 +1,1 @@
-docker buildx ./caddy -t quartz-caddy:latest
+docker buildx . -t quartz-caddy:latest
