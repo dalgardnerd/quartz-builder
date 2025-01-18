@@ -28,5 +28,3 @@ else
 fi
 
 printf "${CYAN}You can view your Quartz site at: ${NOCOLOR} http://localhost\n"
-
-caddy run --config /config/caddy/Caddyfile --adapter caddyfile
