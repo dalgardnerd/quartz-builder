@@ -27,6 +27,6 @@ else
     npx quartz build
 fi
 
-printf "${CYAN}You can view the webpage at the following address: ${NOCOLOR} http://localhost\n"
+printf "${CYAN}You can view your Quartz site at: ${NOCOLOR} http://localhost\n"
 
 caddy run --config /config/caddy/Caddyfile --adapter caddyfile
