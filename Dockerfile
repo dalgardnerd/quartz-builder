@@ -14,4 +14,4 @@ RUN chmod +x /usr/local/bin/content_polling
 
 EXPOSE 80
 
-CMD ["/bin/sh", "-c", "/usr/local/bin/init.sh && crond -f"]
+CMD ["/bin/sh", "-c", "/usr/local/bin/init.sh"]
