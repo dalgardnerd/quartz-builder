@@ -1,16 +1,7 @@
 FROM caddy:latest
 
-RUN apk update
-RUN apk add --no-cache git nodejs npm
-WORKDIR /content
-WORKDIR /config
+WORKDIR /config/caddy
 
-COPY README.md /tmp
-COPY Caddyfile /config/caddy/Caddyfile
-COPY init.sh /usr/local/bin/init.sh
-
-RUN chmod +x /usr/local/bin/init.sh
+COPY Caddyfile ./Caddyfile
 
 EXPOSE 80
-
-CMD ["/bin/sh", "-c", "/usr/local/bin/init.sh"]
