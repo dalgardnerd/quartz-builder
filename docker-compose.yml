@@ -6,5 +6,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./quartz:/config/quartz/
-      - ./content:/content/
+      - quartz-caddy-config:/config/
+      - ./content:/content
+
+volumes:
+  quartz-caddy-config:
