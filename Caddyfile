@@ -2,11 +2,6 @@
 	http_port 80
 }
 
-(block_world) {
-	@block not remote_ip private_ranges
-	abort @block
-}
-
 (security_headers) {
 	header {
 		Strict-Transport-Security "max-age=31536000; includeSubDomains;"
@@ -29,7 +24,6 @@
 	root * /config/quartz/public
 	try_files {path} {path}.html {path}/ =404
 	file_server
-	import block_world
 
 	handle_errors {
 		rewrite * /{err.status_code}.html
