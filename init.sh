@@ -23,7 +23,7 @@ else
     printf "${MAGENTA}Quartz is already initialized. Checking for updates...${NOCOLOR}\n"
     cd quartz
     npx quartz update
-    printf "${MAGENTA}Updating quartz build...${NOCOLOR}\n"
+    printf "${MAGENTA}Performing quartz build...${NOCOLOR}\n"
     npx quartz build
 fi
 
