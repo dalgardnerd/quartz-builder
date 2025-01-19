@@ -10,9 +10,9 @@ For information on other hosting methods, please visit the official documentatio
 
 ---
 
-# Usage
+# usage
 
-## pull the Image
+## pull the image
 ```bash
 docker pull dalgardnerd/quartz-builder:latest
 ```
@@ -30,7 +30,7 @@ At runtime, the container will create the Quartz config and output foldersin the
 ## place notes in content folder
 
 **/quartz/content** -  Quartz will build all the notes in this folder and output the generated site to **/output** every time the container starts.
-## map your webserver to Quartz output
+## map your webserver to quartz output
 
 **/output** - This is the folder that your webserver should watch for the website files to be hosted
 ## configuring quartz
