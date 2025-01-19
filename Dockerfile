@@ -1,17 +1,10 @@
-FROM caddy:latest
+FROM alpine:latest
 
-RUN apk update
-RUN apk add --no-cache git nodejs npm
-WORKDIR /content
-WORKDIR /config
+RUN apk add --no-cache git nodejs npm inotify-tools
 
-COPY README.md /tmp
-COPY Caddyfile /config/caddy/Caddyfile
-COPY init.sh /usr/local/bin/init.sh
+COPY init.sh /usr/bin/local/init.sh
+COPY README.md /tmp/index.md
 
-RUN chmod +x /usr/local/bin/init.sh
-RUN chmod +x /usr/local/bin/content_polling
+WORKDIR /opt/quartz
 
-EXPOSE 80
-
-CMD ["/bin/sh", "-c", "/usr/local/bin/init.sh"]
+ENTRYPOINT ["/bin/sh", "-c", "/usr/bin/local/init.sh"]
