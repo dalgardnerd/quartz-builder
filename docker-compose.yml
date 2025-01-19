@@ -13,8 +13,8 @@ services:
       - quartz-output:/srv/public
 
 
-  quartz:
-    image: quartz-builder:latest
+  quartz-builder:
+    image: dalgardnerd/quartz-builder:latest
     restart: unless-stopped
     volumes:
       - ./quartz:/opt/quartz/
@@ -24,4 +24,3 @@ volumes:
   web-data:
   web-config:
   quartz-output:
-
