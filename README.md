@@ -7,13 +7,13 @@ For information on other hosting methods, please visit the official documentatio
 
 ---
 
-## Usage
+# Usage
 
-### pull the Image
+## pull the Image
 ```bash
 docker pull dalgardnerd/quartz-builder:latest
 ```
-### docker run
+## docker run
 ```bash
 docker run -d \
   --name quartz-builder \
@@ -24,17 +24,17 @@ docker run -d \
 ```
 
 At runtime, the container will create the Quartz config and output foldersin the current directory
-### place notes in content folder
+## place notes in content folder
 
 **/quartz/content** -  Quartz will build all the notes in this folder and output the generated site to **/output** every time the container starts.
-### map your webserver to Quartz output
+## map your webserver to Quartz output
 
 **/output** - This is the folder that your webserver should watch for the website files to be hosted
-### configuring quartz
+## configuring quartz
 
 **quartz.config.ts** and **quartz.layout.ts** are both located in /quartz/content 
 refer to the documentation for help with customizing Quartz - https://quartz.jzhao.xyz/configuration
-### docker-compose.yaml
+## docker-compose.yaml
 
 This example will automatically configure and host an empty site using Caddy Webserver. 
 
