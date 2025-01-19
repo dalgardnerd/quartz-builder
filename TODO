@@ -1,0 +1,2 @@
+switch quartz to docker volume for configs
+add file editor for configs to docker-compose
