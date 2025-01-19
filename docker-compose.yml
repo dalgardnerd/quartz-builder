@@ -6,8 +6,6 @@ services:
       - NET_ADMIN
     ports:
       - "80:80"
-      - "443:443"
-      - "443:443/udp"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
       - web-data:/data
