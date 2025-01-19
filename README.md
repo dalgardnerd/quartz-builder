@@ -4,7 +4,6 @@ Builds a static site using an obsidian vault and Quartz v4. Can be hosted on any
 
 For information on other hosting methods, please visit the official documentation at https://quartz.jzhao.xyz/hosting
 
-
 ---
 
 # Usage
