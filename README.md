@@ -4,6 +4,8 @@
 
 Builds a static site using an obsidian vault and Quartz v4. Can be hosted on any modern web server (Apache, NGINX, Caddy, etc.) . Comes configured for usage with a self-hosted Caddy webserver using the included docker-compose example. 
 
+I recommend using the docker-compose example file so that you get caddy webserver configured automatically.
+
 For information on other hosting methods, please visit the official documentation at https://quartz.jzhao.xyz/hosting
 
 ---
