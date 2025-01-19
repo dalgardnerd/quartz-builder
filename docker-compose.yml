@@ -10,17 +10,20 @@ services:
       - "443:443/udp"
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
-      - quartz-public:/srv
-      - caddy-data:/data
-      - caddy-config:/config
+      - web-data:/data
+      - web-config:/config
+      - quartz-output:/srv/public
+
 
   quartz:
-    image: alpine:latest
+    image: quartz-builder:latest
     restart: unless-stopped
-    command: sh
+    volumes:
+      - ./quartz:/opt/quartz/
+      - quartz-output:/opt/public
 
 volumes:
-  caddy-data:
-  caddy-config:
-  quartz-public:
+  web-data:
+  web-config:
+  quartz-output:
 

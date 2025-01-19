@@ -21,7 +21,7 @@
 
 :80 {
 	import log_settings
-	root * /srv
+	root * /srv/public
 	try_files {path} {path}.html {path}/ =404
 	file_server
 
