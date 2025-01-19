@@ -1,1 +1,1 @@
-docker buildx build . --% -t quartz-builder:latest
+docker buildx build ./quartz-builder --% -t dalgardnerd:quartz-builder:latest
