@@ -1,7 +1,6 @@
 #!/bin/sh
 CYAN='\033[1;36m'
 MAGENTA='\033[1;35m'
-RED='\033[1;31m'
 NOCOLOR='\033[0m'
 
 
@@ -15,7 +14,7 @@ if [ ! -d "/opt/quartz/node_modules" ]; then
         cd /opt/quartz
         npm i
         npx quartz create -X new -l shortest
-        printf "${CYAN}Quartz initialization complete.\n${NOCOLOR}\n"
+        printf "${MAGENTA}Quartz initialization complete.\n${NOCOLOR}\n"
         printf "${MAGENTA}Peforming initial quartz build...${NOCOLOR}\n"
         npx quartz build -o /opt/public
         printf "${MAGENTA}Quartz initial build complete${NOCOLOR}\n"
@@ -28,7 +27,7 @@ else
     printf "${MAGENTA}Quartz build complete${NOCOLOR}\n"
 fi
 
-printf "${CYAN}You can view your Quartz site at: ${NOCOLOR}http://localhost\n"
+printf "${CYAN}You can view your Quartz site at: ${NOCOLOR}http://localhost:80\n"
 
 while true; do
         # inotifywait -r -e modify,create,delete,move /opt/quartz/content
