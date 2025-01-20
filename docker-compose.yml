@@ -1,6 +1,6 @@
 services:
   web:
-    image: caddy:latest
+    image: quartz-caddy
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
