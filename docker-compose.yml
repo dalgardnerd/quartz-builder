@@ -10,7 +10,7 @@ services:
       - web-data:/data
       - web-config:/config
       - quartz-output:/srv/public
-      - config-volume::/etc/caddy/Caddyfile
+      - config-volume:/opt
 
 
   quartz-builder:
