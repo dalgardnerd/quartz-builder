@@ -10,6 +10,7 @@ services:
       - web-data:/data
       - web-config:/config
       - quartz-output:/srv/public
+      - config-volume::/etc/caddy/Caddyfile
 
 
   quartz-builder:
@@ -19,7 +20,15 @@ services:
       - ./quartz:/opt/quartz/
       - quartz-output:/opt/public
 
+  vscode:
+    image: linuxserver/code-server:latest
+    restart: unless-stopped
+    volumes:
+      - config-volume:/config
+    ports: 
+      - 8443:8443
 volumes:
   web-data:
   web-config:
   quartz-output:
+  config-volume:
