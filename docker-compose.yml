@@ -1,6 +1,9 @@
 services:
   web:
     image: caddy:latest
+    image: dalgardnerd/quartz-caddy:latest
+    depends_on: 
+      - quartz-builder
     restart: unless-stopped
     cap_add:
       - NET_ADMIN
@@ -11,6 +14,11 @@ services:
       - web-config:/config
       - quartz-output:/srv/public
 
+      - type: volume
+        source: quartz
+        target: /srv/public
+        volume:
+          subpath: public
 
   quartz-builder:
     image: dalgardnerd/quartz-builder:latest
@@ -18,8 +26,18 @@ services:
     volumes:
       - ./quartz:/opt/quartz/
       - quartz-output:/opt/public
+      - quartz:/opt
+
+  vs-code:
+    image: linuxserver/code-server
+    restart: unless-stopped
+    ports:
+      - "8443:8443"
+    volumes:
+      - quartz:/data
+    working_dir: /data
 
 volumes:
   web-data:
   web-config:
-  quartz-output:
+  quartz-output:  quartz:
