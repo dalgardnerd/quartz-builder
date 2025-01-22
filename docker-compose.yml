@@ -1,6 +1,5 @@
 services:
   web:
-    image: caddy:latest
     image: dalgardnerd/quartz-caddy:latest
     depends_on: 
       - quartz-builder
@@ -12,8 +11,6 @@ services:
     volumes:
       - web-data:/data
       - web-config:/config
-      - quartz-output:/srv/public
-
       - type: volume
         source: quartz
         target: /srv/public
@@ -24,8 +21,6 @@ services:
     image: dalgardnerd/quartz-builder:latest
     restart: unless-stopped
     volumes:
-      - ./quartz:/opt/quartz/
-      - quartz-output:/opt/public
       - quartz:/opt
 
   vs-code:
@@ -40,4 +35,4 @@ services:
 volumes:
   web-data:
   web-config:
-  quartz-output:  quartz:
+  quartz:
